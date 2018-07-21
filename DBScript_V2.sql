@@ -35,4 +35,15 @@ ADD CONSTRAINT `DEVICE_ID_FK`
   REFERENCES `poolcardb`.`device_app_registration` (`APP_ID`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
+  
+  
+  ALTER TABLE `poolcardb`.`audit_activity` 
+ADD INDEX `DEVICE_ID_PK_idx` (`DEVICE_ID` ASC);
+ALTER TABLE `poolcardb`.`audit_activity` 
+ADD CONSTRAINT `DEVICE_ID_PK`
+  FOREIGN KEY (`DEVICE_ID`)
+  REFERENCES `poolcardb`.`device_app_registration` (`APP_ID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
 
